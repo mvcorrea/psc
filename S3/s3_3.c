@@ -64,8 +64,6 @@ Weather* get_weather(Location* location, Date* date ){
 
 	json_t *root = http_get_json_data(str);
 
-
-	printf("%d\n", json_typeof(root));
 	if(json_typeof(root) == 0){
 		json_t *daily_data = json_array_get(json_object_get(json_object_get(root, "daily"),"data"), 0);
 		
@@ -80,52 +78,16 @@ Weather* get_weather(Location* location, Date* date ){
 		results->wind     = json_number_value(wind);
 		results->humidity = json_number_value(humidity);
 		results->cloud    = json_number_value(cloud);
-
+/*
 		printf(">> %.2f\n", json_number_value(tempMin));
 		printf(">> %.2f\n", json_number_value(tempMax));
 		printf(">> %.2f\n", json_number_value(wind));
 		printf(">> %.2f\n", json_number_value(humidity));
 		printf(">> %.2f\n", json_number_value(cloud));
-	
+*/	
 	}
 
-
-
-	//printf("%d\n", json_typeof(root));
-
-
-		/* regarding the weather struct, there are only min_temp and max_temp on the daily object 
-		   in this case I will only grab the daily object */
-
-
-/*
-	if(json_typeof(root) != NULL){ // json returned
-
-
-		json_t *daily_data = json_array_get(json_object_get(json_object_get(root, "daily"),"data"), 0);
-
-		printf("inside1: %d\n", json_typeof(daily_data));
-
-
-	
-		if(json_typeof(daily_data) == 0){
-				printf("inside2\n");
-				json_t* tempMin = json_object_get(daily_data, "temperatureMin");
-				printf("%lld\n", json_integer_value(tempMin));
-		}
-
-		const char *key;
-		json_t *value;
-		json_object_foreach(daily_data, key, value){
-			printf("%s -> %s\n", key, json_string_value(value));
-		}		
-		
-		
-	//	printf("%lld\n", json_object_value(daily_data));
-	}
-*/
-
-	return NULL;
+	return results;
 }
 
 int main(int argc, char *argv[]){	
@@ -147,6 +109,8 @@ int main(int argc, char *argv[]){
 	dt->deviation_minute = 0;
 
 	Weather *w = get_weather(lx, dt);
+
+	printf("%f, %f, %f, %f, %f\n", w->min_temp, w->max_temp, w->wind, w->humidity, w->cloud);
 
 }		
 

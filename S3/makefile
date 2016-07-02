@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -g -O1 -m32 -Wall -O1
 LFLAGS = -g -O1 -m32 -lcurl -ljansson -L.
 #TARGET = $(input)
-TARGET = s3_1
+TARGET = s3_3
 
 ## lib jansson build for OSX
 
@@ -16,6 +16,12 @@ $(TARGET): $(TARGET).o helper.o
 
 $(TARGET).o: $(TARGET).c
 	$(CC) $(CFLAGS) -c $(TARGET).c
+
+open:
+	open -a "Google Chrome" forecast.json
+
+run:
+	./$(TARGET)
 
 clean:
 	@ rm ./$(TARGET) *.o 2> /dev/null | true
