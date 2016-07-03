@@ -1,1 +1,20 @@
-s3
+# intellij
+.idea
+*.iml
+
+# gradle
+.gradle
+build
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# OSX
+.DS_Store
+.tmp
+*.o
+
+# vim
+*.swp
+
+

@@ -1,6 +1,6 @@
 #ifndef HEADER_FILE
 #define HEADER_FILE
-
+#define SIZE 3
 
 typedef struct _Buffer {
   size_t size;
@@ -31,12 +31,14 @@ typedef struct date {
 } Date;
 
 
+//typedef struct location* Locations[SIZE];// Locations;
+//typedef struct weather*  Weathers[SIZE];// Weathers;
+
+typedef Location* Locations[SIZE];
+typedef Weather* Weathers[SIZE];
 
 
 size_t memwrite(char* data, size_t size, size_t nmemb, void* stream);
 char* parseDate(Date dt);
-
-
-
 
 #endif

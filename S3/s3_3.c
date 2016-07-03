@@ -52,7 +52,7 @@ json_t* http_get_json_data(const char *uri){	// S3.II.2
 	return result;	
 	}
 
-Weather* get_weather(Location* location, Date* date ){
+Weather* get_weather(Location* location, Date* date ){ // S3.II.3
 	
 	char* url = "https://api.forecast.io/forecast/a24ba3a9fa25f1c267c234aa4cfeb843/";
 	char* dt = parseDate( *date );
@@ -111,6 +111,11 @@ int main(int argc, char *argv[]){
 	Weather *w = get_weather(lx, dt);
 
 	printf("%f, %f, %f, %f, %f\n", w->min_temp, w->max_temp, w->wind, w->humidity, w->cloud);
+
+
+	free(lx);
+	free(dt);
+	free(w);
 
 }		
 

@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -g -O1 -m32 -Wall -O1
 LFLAGS = -g -O1 -m32 -lcurl -ljansson -L.
 #TARGET = $(input)
-TARGET = s3_3
+TARGET = s3_4
 
 ## lib jansson build for OSX
 

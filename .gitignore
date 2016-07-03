@@ -1,4 +1,4 @@
-ntellij
+# intellij
 .idea
 *.iml
 
@@ -14,4 +14,6 @@ hs_err_pid*
 .tmp
 *.o
 
+# unneeded
 Tasks
+*.swp
