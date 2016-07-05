@@ -90,25 +90,30 @@ Weather*	get_weather(Location* location, Date* date ){ // S3.II.3
 	return results;
 }				
 
-void free_weathers(Weathers weathers){ // S3.II.4
+void free_weathers(Weathers* weathers){ // S3.II.4
 	for(int i = 0; i<SIZE; i++){
-			free(weathers[i]);
+			free(weathers->weathers_ptr[i]);
 	}
+	free(weathers);
 }
 
-Weathers get_weathers(Locations locations, Date *date){ // S3.II.4
-	Weathers* results  = (Weathers*) malloc ( sizeof( Weather* ) * SIZE+1 );
-	//for(int i = 0; i<SIZE; i++){ results[i] = (Weather*)malloc(sizeof(Weather)); }
-
-	for(int i = 0; i<SIZE; i++){
-		printf(">> %s\n", locations[i]->name);
-		//Weather tmp = *get_weather(locations[i], date);
-		*(results[i]) = get_weather(locations[i], date);
-	}
-
-	return *results;
-}	
+Weathers* get_weathers(Locations *locations, Date *date){ // S3.II.4
 	
+	Weathers* results = (Weathers*)malloc(sizeof(Weathers) + sizeof(Weather*)*SIZE);
+	
+	for(int i = 0; i<SIZE; i++){
+		printf(">> %s\n", locations->loc_ptr[i]->name); 
+		results->weathers_ptr[i] = malloc(sizeof(Weather));
+		Weather* tmp = get_weather(locations->loc_ptr[i], date);
+		results->weathers_ptr[i]->min_temp = tmp->min_temp;
+		results->weathers_ptr[i]->max_temp = tmp->max_temp;
+		results->weathers_ptr[i]->wind = tmp->wind;
+		results->weathers_ptr[i]->humidity = tmp->humidity;
+		results->weathers_ptr[i]->cloud = tmp->cloud;
+	}
+	return results;
+}	
+
 int	main(int argc, char *argv[]){	
 	printf("TRAB PSC: %s\n\n", argv[0]);
 
@@ -121,40 +126,31 @@ int	main(int argc, char *argv[]){
 	Location* cb = (Location*)malloc(sizeof(Location));
 	cb->name = "Casablanca"; cb->latitude = 33.60; cb->longitude = -7.62;
 
+	Locations* locs = (Locations*)malloc(sizeof(Locations) + sizeof(Date*)*SIZE);
+	locs->length = 2;
+	locs->loc_ptr[0] = lx;
+	locs->loc_ptr[1] = md;
+	locs->loc_ptr[2] = cb;
+
 	Date* dt = (Date*)malloc(sizeof(Date));
 	dt->year = 2016; dt->month = 7; dt->day = 1;
 	dt->hour = 12; dt->minute = 0; dt->second = 0;
 	dt->deviation_hour = 0;
 	dt->deviation_minute = 0;
 
-	Locations locs;// = (Locations)malloc(sizeof(Locations)*SIZE);
-	locs[0] = lx; locs[1] = md; locs[2] = cb;
+	Weathers* ws = get_weathers(locs, dt);
 
-	for(int i = 0; i<SIZE; i++){
-		printf("> %s\n", locs[i]->name);
+	for(int i=0; i<SIZE; i++){ 
+		printf("%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n",
+		ws->weathers_ptr[i]->min_temp,
+		ws->weathers_ptr[i]->max_temp,
+		ws->weathers_ptr[i]->wind,
+		ws->weathers_ptr[i]->humidity,
+		ws->weathers_ptr[i]->cloud);
 	}
 
-	Weathers ws;
-	ws = get_weathers(locs, dt);
-/*
-	for(int i = 0; i<SIZE; i++){
-		printf("%s\n", ws[i]->min_temp);
-	}	
-*/
-
-/*
-
-	for(int i = 0; i<SIZE; i++){
-		printf(">> %f, %f, %f, %f, %f\n", ws[i]->min_temp, ws[i]->max_temp, ws[i]->wind, ws[i]->humidity, ws[i]->cloud);
-	}
-
-*/
-
-//	Weather* w = get_weather(cb, dt);
-//	printf("%f, %f, %f, %f, %f\n", w->min_temp, w->max_temp, w->wind, w->humidity, w->cloud);
-//	free(lx);
-//	free(dt);
-//	free(w);
-
+	free_weathers(ws);
+	for(int i=0; i<SIZE; i++){ free(locs->loc_ptr[i]); }
+	free(locs);
 }		
 

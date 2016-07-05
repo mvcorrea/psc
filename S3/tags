@@ -1,0 +1,81 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BUFFER_SIZE	.tmp/github_commits.c	/^#define BUFFER_SIZE /;"	d	file:
+Buffer	.tmp/getjson.c	/^} Buffer;$/;"	t	typeref:struct:_Buffer	file:
+Buffer	helper.h	/^} Buffer;$/;"	t	typeref:struct:_Buffer
+CC	makefile	/^CC = gcc$/;"	m
+CFLAGS	makefile	/^CFLAGS = -g -O1 -m32 -Wall -O1$/;"	m
+CTAGS	makefile	/^CTAGS  = ctags -R . $/;"	m
+Date	helper.h	/^} Date;$/;"	t	typeref:struct:date
+FtpFile	.tmp/ftpget.c	/^struct FtpFile {$/;"	s	file:
+HEADER_FILE	helper.h	/^#define HEADER_FILE$/;"	d
+LFLAGS	makefile	/^LFLAGS = -g -O1 -m32 -lcurl -ljansson -L.$/;"	m
+Location	helper.h	/^} Location;$/;"	t	typeref:struct:location
+Locations	helper.h	/^typedef struct location* Locations;$/;"	t	typeref:struct:location
+SIZE	helper.h	/^#define SIZE /;"	d
+TARGET	makefile	/^TARGET = s3_4$/;"	m
+URL_FORMAT	.tmp/github_commits.c	/^#define URL_FORMAT /;"	d	file:
+URL_SIZE	.tmp/github_commits.c	/^#define URL_SIZE /;"	d	file:
+Weather	helper.h	/^} Weather;$/;"	t	typeref:struct:weather
+Weathers	helper.h	/^typedef struct weather* Weathers;$/;"	t	typeref:struct:weather
+_Buffer	.tmp/getjson.c	/^typedef struct _Buffer {$/;"	s	file:
+_Buffer	helper.h	/^typedef struct _Buffer {$/;"	s
+cloud	helper.h	/^  float cloud;$/;"	m	struct:weather
+data	.tmp/github_commits.c	/^    char *data;$/;"	m	struct:write_result	file:
+date	helper.h	/^typedef struct date {$/;"	s
+day	helper.h	/^  unsigned short month; unsigned short day;$/;"	m	struct:date
+deviation_hour	helper.h	/^  short deviation_hour;$/;"	m	struct:date
+deviation_minute	helper.h	/^  unsigned short deviation_minute;$/;"	m	struct:date
+filename	.tmp/ftpget.c	/^  const char *filename;$/;"	m	struct:FtpFile	file:
+free_weathers	s3_4.c	/^void free_weathers(Weathers weathers){ \/\/ S3.II.4$/;"	f
+get_weather	s3_3.c	/^Weather* get_weather(Location* location, Date* date ){ \/\/ S3.II.3$/;"	f
+get_weather	s3_4.c	/^Weather*	get_weather(Location* location, Date* date ){ \/\/ S3.II.3$/;"	f
+hour	helper.h	/^  unsigned short hour;  unsigned short minute;$/;"	m	struct:date
+http_get	.tmp/getjson.c	/^static char *http_get(const char *url)$/;"	f	file:
+http_get	s3_1.c	/^int http_get(const char *uri, const char *filename){ \/\/ S3.II.1$/;"	f
+http_get	s3_3.c	/^int http_get(const char *uri, const char *filename){ \/\/ S3.II.1$/;"	f
+http_get	s3_4.c	/^int http_get(const char *uri, const char *filename){ \/\/ S3.II.1$/;"	f
+http_get_json_data	s3_2.c	/^json_t* http_get_json_data(const char *uri){	\/\/ S3.II.2$/;"	f
+http_get_json_data	s3_3.c	/^json_t* http_get_json_data(const char *uri){	\/\/ S3.II.2$/;"	f
+http_get_json_data	s3_4.c	/^json_t* http_get_json_data(const char *uri){	\/\/ S3.II.2$/;"	f
+humidity	helper.h	/^  float humidity;$/;"	m	struct:weather
+latitude	helper.h	/^  float latitude;$/;"	m	struct:location
+location	helper.h	/^typedef struct location {$/;"	s
+longitude	helper.h	/^  float longitude;$/;"	m	struct:location
+main	.tmp/ftpget.c	/^int main(void)$/;"	f
+main	.tmp/getjson.c	/^int main(int argc, char *argv[])$/;"	f
+main	.tmp/gettofile.c	/^int main(int argc, char *argv[])$/;"	f
+main	.tmp/github_commits.c	/^int main(int argc, char *argv[])$/;"	f
+main	.tmp/time.c	/^int main()$/;"	f
+main	s3_1.c	/^int main(int argc, char *argv[]){$/;"	f
+main	s3_2.c	/^int main(int argc, char *argv[]){$/;"	f
+main	s3_3.c	/^int main(int argc, char *argv[]){	$/;"	f
+main	s3_4.c	/^int	main(int argc, char *argv[]){	$/;"	f
+max_temp	helper.h	/^  float max_temp;$/;"	m	struct:weather
+memory	.tmp/getjson.c	/^    char *memory;$/;"	m	struct:_Buffer	file:
+memory	helper.h	/^  char *memory;$/;"	m	struct:_Buffer
+memwrite	helper.c	/^size_t memwrite(char* data, size_t size, size_t nmemb, void* stream){$/;"	f
+min_temp	helper.h	/^  float min_temp;$/;"	m	struct:weather
+minute	helper.h	/^  unsigned short hour;  unsigned short minute;$/;"	m	struct:date
+month	helper.h	/^  unsigned short month; unsigned short day;$/;"	m	struct:date
+my_fwrite	.tmp/ftpget.c	/^static size_t my_fwrite(void *buffer, size_t size, size_t nmemb, void *stream)$/;"	f	file:
+name	helper.h	/^  const char *name;$/;"	m	struct:location
+newline_offset	.tmp/github_commits.c	/^static int newline_offset(const char *text)$/;"	f	file:
+parseDate	helper.c	/^char* parseDate(Date dt){$/;"	f
+pos	.tmp/github_commits.c	/^    int pos;$/;"	m	struct:write_result	file:
+request	.tmp/github_commits.c	/^static char *request(const char *url)$/;"	f	file:
+second	helper.h	/^  unsigned short second;$/;"	m	struct:date
+size	.tmp/getjson.c	/^    size_t size;$/;"	m	struct:_Buffer	file:
+size	helper.h	/^  size_t size;$/;"	m	struct:_Buffer
+stream	.tmp/ftpget.c	/^  FILE *stream;$/;"	m	struct:FtpFile	file:
+weather	helper.h	/^typedef struct weather {$/;"	s
+wind	helper.h	/^  float wind;$/;"	m	struct:weather
+write_function_default	.tmp/gettofile.c	/^static size_t write_function_default(char *data, size_t size, size_t nmemb,$/;"	f	file:
+write_response	.tmp/github_commits.c	/^static size_t write_response(void *ptr, size_t size, size_t nmemb, void *stream)$/;"	f	file:
+write_result	.tmp/github_commits.c	/^struct write_result$/;"	s	file:
+write_to_memory	.tmp/getjson.c	/^static size_t write_to_memory(char *data, size_t size, size_t nmemb, void *context)$/;"	f	file:
+year	helper.h	/^  unsigned int year;$/;"	m	struct:date

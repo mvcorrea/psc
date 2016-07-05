@@ -30,12 +30,15 @@ typedef struct date {
   unsigned short deviation_minute;
 } Date;
 
+typedef struct locations {
+  size_t length;
+  Location* loc_ptr[];
+} Locations;
 
-//typedef struct location* Locations[SIZE];// Locations;
-//typedef struct weather*  Weathers[SIZE];// Weathers;
-
-typedef Location* Locations[SIZE];
-typedef Weather* Weathers[SIZE];
+typedef struct weathers {
+  size_t length;
+  Weather* weathers_ptr[];
+} Weathers;
 
 
 size_t memwrite(char* data, size_t size, size_t nmemb, void* stream);

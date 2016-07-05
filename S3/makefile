@@ -1,12 +1,15 @@
 CC = gcc
 CFLAGS = -g -O1 -m32 -Wall -O1
 LFLAGS = -g -O1 -m32 -lcurl -ljansson -L.
+CTAGS  = ctags -R . 
 #TARGET = $(input)
 TARGET = s3_4
 
 ## lib jansson build for OSX
 
-all: $(TARGET)
+.PHONY: open run clean cls tags
+
+all: cls $(TARGET)
 
 helper.o: helper.c
 	$(CC) $(CFLAGS) -c helper.c
@@ -25,3 +28,10 @@ run:
 
 clean:
 	@ rm ./$(TARGET) *.o 2> /dev/null | true
+
+cls:
+	clear
+
+tags: 
+	$(CTAGS)
+
